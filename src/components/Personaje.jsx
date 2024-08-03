@@ -1,12 +1,28 @@
-import React from 'react'
-import { useParams } from 'react-router-dom'
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import { unicoPersonaje } from '../funciones/funciones';
 
 const Personaje = () => {
-    const params = useParams()
+    const [personaje, setPersonaje] = useState(null);
+    const params = useParams();
 
-  return (
-    <div>Personaje con el id {params.id}</div>
-  )
-}
+    useEffect(() => {
+        unicoPersonaje(params.id, setPersonaje);
+    }, [params.id]);
 
-export default Personaje
+    return (
+        <>
+            {personaje === null ? (
+                <p>No hay personaje</p>
+            ) : (
+                <>
+                    <h2>Personaje con el id {params.id}</h2>
+                    <p>con el nombre {personaje.name}</p>
+                    <img src={personaje.image} alt={personaje.name} />
+                </>
+            )}
+        </>
+    );
+};
+
+export default Personaje;
