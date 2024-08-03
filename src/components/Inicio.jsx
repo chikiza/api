@@ -14,7 +14,12 @@ const Inicio = () => {
             <a href={`/personaje/${personaje.id}`}>{personaje.name}</a>
         </div>
     )))}
+    <div>
+
+    </div>
     </>
+
+    
   )
 }
 

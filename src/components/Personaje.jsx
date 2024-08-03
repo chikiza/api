@@ -16,8 +16,8 @@ const Personaje = () => {
                 <p>No hay personaje</p>
             ) : (
                 <>
-                    <h2>Personaje con el id {params.id}</h2>
-                    <p>con el nombre {personaje.name}</p>
+                    <h2>Personaje {personaje.name} </h2>
+                    <p>ID #{params.id}</p>
                     <img src={personaje.image} alt={personaje.name} />
                 </>
             )}
